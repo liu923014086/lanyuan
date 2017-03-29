@@ -58,7 +58,7 @@ public class UserController {
 	@RequestMapping("add")
 	public String add(Model model, User user) {
 		userService.add(user);
-		return "redirect:query.html";
+		return "redirect:query.do";
 	}
 
 	/**
@@ -82,7 +82,7 @@ public class UserController {
 	@RequestMapping("deleteById")
 	public String deleteById(Model model, String userId) {
 		userService.delete(userId);
-		return "redirect:query.html";
+		return "redirect:query.do";
 	}
 
 	/**
@@ -116,7 +116,7 @@ public class UserController {
 		userService.modify(user);
 		if(userRoles.getRoleId()!=null)
 		rolesService.saveUserRole(userRoles);
-		return "redirect:query.html";
+		return "redirect:query.do";
 	}
 
 	/**
@@ -130,7 +130,7 @@ public class UserController {
 		for (String string : check) {
 			userService.delete(string);
 		}
-		return "redirect:query.html";
+		return "redirect:query.do";
 	}
 	
 	/**

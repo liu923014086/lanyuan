@@ -67,7 +67,7 @@ public class RoleController {
 	@RequestMapping(value="add")
 	public String add(Model model,Roles role,String rescId){
 		rolesService.add(role);
-		return "redirect:query.html";
+		return "redirect:query.do";
 	}
 	
 	/**
@@ -99,7 +99,7 @@ public class RoleController {
 	@RequestMapping(value="deleteById")
 	public String deleteById(Model model,String roleId){
 		rolesService.delete(roleId);
-		return "redirect:query.html";
+		return "redirect:query.do";
 	}
 	
 	/**
@@ -129,7 +129,7 @@ public class RoleController {
 	@RequestMapping(value="update")
 	public String updaterole(Model model,Roles role){
 		rolesService.modify(role);
-		return "redirect:query.html";
+		return "redirect:query.do";
 	}
 	
 	@RequestMapping(value="deleteAll")
@@ -137,7 +137,7 @@ public class RoleController {
 		for(String id : check){
 			rolesService.delete(id);
 		}
-		return "redirect:query.html";
+		return "redirect:query.do";
 	}
 //	/**
 //	 * 某个用户拥有的权限

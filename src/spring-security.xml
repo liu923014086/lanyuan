@@ -12,9 +12,9 @@
     <debug />-->
     <http pattern="/login.jsp" security="none" />
     <http pattern="/denied.jsp" security="none" />
-    <http pattern="/background/login.html" security="none" />
+    <http pattern="/background/login.do" security="none" />
    <!--  <http pattern="/background/j_security_check" security="none"/> -->
-    <http pattern="/background/loginCheck.html" security="none"/>
+    <http pattern="/background/loginCheck.do" security="none"/>
     
 	<!--/
 	开启支持方法注解的权限控制：
@@ -54,7 +54,7 @@
         invalidate-session 属性：如果为true，在注销的时候会销毁会话
         delete-cookies 属性：以逗号分隔的cookies名称，在用户注销时删除指定的cookies
         -->
-        <logout logout-success-url="/j_spring_security_logout" logout-url="/background/login.html" invalidate-session="true" delete-cookies="JSESSIONID"/>
+        <logout logout-success-url="/j_spring_security_logout" logout-url="/background/login.do" invalidate-session="true" delete-cookies="JSESSIONID"/>
         
         <!-- 实现免登陆验证 
         <remember-me  />
@@ -65,7 +65,7 @@
         	防止有些 Web 应用把用户的会话标识符直接通过 URL 的参数来传递        
         -->
         <!-- 会话管理 -->
-		<session-management invalid-session-url="/background/login.html" session-fixation-protection="none">
+		<session-management invalid-session-url="/background/login.do" session-fixation-protection="none">
 			<concurrency-control max-sessions="1"
 				error-if-maximum-exceeded="true" />
 		</session-management>
@@ -95,7 +95,7 @@
 	-->
  <!-- 未登录的切入点 -->
     <beans:bean id="myAuthenticationEntryPoint" class="org.springframework.security.web.authentication.LoginUrlAuthenticationEntryPoint">
-        <beans:property name="loginFormUrl" value="/background/login.html"></beans:property>
+        <beans:property name="loginFormUrl" value="/background/login.do"></beans:property>
     </beans:bean>
     <!-- 登录验证器：用户有没有登录的资格 
     	init-method="init" 初始化方法
@@ -106,9 +106,9 @@
 		<beans:property name="authenticationManager" ref="myAuthenticationManager" />
 		<beans:property name="filterProcessesUrl" value="/background/j_security_check" />
 		验证成功后要跳转的URL
-		<beans:property name="successUrl" value="/background/index.html" />
+		<beans:property name="successUrl" value="/background/index.do" />
 		验证失败后要跳转的URL
-		<beans:property name="errorUrl" value="/background/login.html" />
+		<beans:property name="errorUrl" value="/background/login.do" />
 	</beans:bean> -->
 	
     <!-- 实现了UserDetailsService的Bean 用户拥有的权限：登录后取得用户所保有的权限信息

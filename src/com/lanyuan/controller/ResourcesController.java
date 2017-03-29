@@ -51,7 +51,7 @@ public class ResourcesController {
 	@RequestMapping(value="add")
 	public String add(Model model,Resources resources){
 		resourcesService.add(resources);
-		return "redirect:query.html";
+		return "redirect:query.do";
 	}
 	
 	/**
@@ -83,7 +83,7 @@ public class ResourcesController {
 	@RequestMapping(value="deleteById")
 	public String deleteById(Model model,String resourcesId){
 		resourcesService.delete(resourcesId);
-		return "redirect:query.html";
+		return "redirect:query.do";
 	}
 	
 	/**
@@ -115,7 +115,7 @@ public class ResourcesController {
 	@RequestMapping(value="update")
 	public String updateResources(Model model,Resources resources){
 		resourcesService.modify(resources);
-		return "redirect:query.html";
+		return "redirect:query.do";
 	}
 	
 	@RequestMapping(value="deleteAll")
@@ -123,7 +123,7 @@ public class ResourcesController {
 		for(String id : check){
 			resourcesService.delete(id);
 		}
-		return "redirect:query.html";
+		return "redirect:query.do";
 	}
 	/**
 	 * 某个用户拥有的权限

@@ -94,7 +94,7 @@ public class BackgroundController
 			request.setAttribute("error", "登录异常，请联系管理员！");
 		    return "/background/framework/login";
 		}
-		return "redirect:index.html";
+		return "redirect:index.do";
 	}
 	
 	/**
